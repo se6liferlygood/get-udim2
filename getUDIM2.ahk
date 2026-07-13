@@ -51,9 +51,6 @@ while(!WinExist("Roblox")) {
                         p.Push(Number(str))
                         str := ""
                     }
-                    if(p.Length>=2) {
-                        break
-                    }
                 } catch {
                     MsgBox("invalid input")
                     return
