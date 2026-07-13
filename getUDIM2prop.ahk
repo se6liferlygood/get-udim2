@@ -37,6 +37,7 @@ eyeStrain(hotkey,dx,dy) {
     MouseMove(dx,dy,,"R")
     while GetKeyState(hotkey,"P") {
     }
+    Sleep 100
 }
 
 Up::eyeStrain(A_ThisHotkey,0,-1)
