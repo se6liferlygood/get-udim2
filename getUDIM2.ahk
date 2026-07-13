@@ -24,7 +24,7 @@ while(!WinExist("Roblox")) {
     }
     if(data.Length>=2) {
         try {
-            InputBox("UDIM2 PROPORTIONS",,,"{px: " (data[1].x-data[2].x)/(data[1].w-data[2].w) ", py: " (data[1].y-data[2].y)/(data[1].h-data[2].h) "}")
+            InputBox("udim2 proportions",,,"{px: " (data[1].x-data[2].x)/(data[1].w-data[2].w) ", py: " (data[1].y-data[2].y)/(data[1].h-data[2].h) "}")
             Reload()
         } catch {
             MsgBox("follow the instructions you retard")
@@ -35,7 +35,7 @@ while(!WinExist("Roblox")) {
 
 *!f::{
     static prop := ""
-    prop := InputBox("udim2 proportions",,,prop).Value
+    prop := InputBox("udim2 proportions`n`ntype in 2 numbers seperated by something`nany extra text is ignored",,,prop).Value
     if(!WinExist("Roblox")) {
         Reload()
         return
@@ -46,12 +46,17 @@ while(!WinExist("Roblox")) {
         switch(A_LoopField) {
             case ".","0","1","2","3","4","5","6","7","8","9": str .= A_LoopField
             default:
-                if(str!=="") {
-                    p.Push(Number(str))
-                    str := ""
-                }
-                if(p.Length>=2) {
-                    break
+                try {
+                    if(str!=="") {
+                        p.Push(Number(str))
+                        str := ""
+                    }
+                    if(p.Length>=2) {
+                        break
+                    }
+                } catch {
+                    MsgBox("invalid input")
+                    return
                 }
         }
     }
